@@ -15,7 +15,7 @@ message CreateProductRequest {
   string sku = 2;
   int32 stock = 3;
   double price = 4;
-  string isActive = 5;
+  string isactive = 5;
 }
 
 message CreateProductResponse {
@@ -32,7 +32,7 @@ message FindOneData {
   string sku = 3;
   int32 stock = 4;
   double price = 5;
-  string isActive = 6;
+  string isactive = 6;
 }
 
 message FindOneRequest {
