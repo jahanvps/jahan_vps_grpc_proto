@@ -6,6 +6,7 @@ service AuthService {
   rpc Register (RegisterRequest) returns (RegisterResponse) {}
   rpc Login (LoginRequest) returns (LoginResponse) {}
   rpc Validate (ValidateRequest) returns (ValidateResponse) {}
+  rpc VerifyOtp (VerifyOtpRequest) returns (LoginResponse) {}
 }
 
 // Register
@@ -42,4 +43,11 @@ message ValidateResponse {
   int32 status = 1;
   repeated string error = 2;
   int32 userId = 3;
+}
+
+// Otp
+
+message VerifyOtpRequest {
+  string verifycode = 1;
+  string mobile = 2;
 }
