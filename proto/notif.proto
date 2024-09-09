@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package notif;
+
+service NotifService {
+  rpc sendOtp (MobileVerifyCodeRequest) returns (MobileVerifyCodeResponse) {}
+}
+
+// Register
+message MobileVerifyCodeRequest {
+  string verifycode = 1;
+  string userid = 2;
+}
+
+message MobileVerifyCodeResponse {
+  int32 status = 1;
+  repeated string error = 2;
+}
