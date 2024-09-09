@@ -10,7 +10,7 @@ service AuthService {
 
 // Register
 message RegisterRequest {
-  string fullName = 1;
+  string fullname = 1;
   string mobile = 2;
   string password = 3;
 }
