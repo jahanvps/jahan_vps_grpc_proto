@@ -2,11 +2,36 @@ syntax = "proto3";
 
 package auth;
 
+// Define the User entity
+message User {
+  string id = 1;
+  string fullName = 2;
+  string email = 3;
+  string mobile = 4;
+  string verificationCode = 5;
+  string verfiedAt= 6;
+  string verifyCodeExpireDate = 7;
+  int32 verifyStatus = 8;
+  string createdAt = 9;
+  string updatedAt = 10;
+  string deletedAt = 11;
+}
+
 service AuthService {
   rpc Register (RegisterRequest) returns (RegisterResponse) {}
   rpc Login (LoginRequest) returns (LoginResponse) {}
   rpc Validate (ValidateRequest) returns (ValidateResponse) {}
   rpc VerifyOtp (VerifyOtpRequest) returns (LoginResponse) {}
+  rpc VerifyUser (VerifyUserRequest) returns (VerifyUserResponse) {}
+}
+
+// User
+message VerifyUserRequest {
+  string userId = 1;
+}
+
+message VerifyUserResponse { 
+  User user = 1;
 }
 
 // Register
