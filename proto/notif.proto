@@ -3,7 +3,7 @@ syntax = "proto3";
 package notif;
 
 service NotifService {
-  rpc sendOtp (MobileVerifyCodeRequest) returns (MobileVerifyCodeResponse) {}
+  rpc SendOtp (MobileVerifyCodeRequest) returns (MobileVerifyCodeResponse) {}
 }
 
 // Register
