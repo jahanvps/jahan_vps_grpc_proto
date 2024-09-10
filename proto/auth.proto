@@ -2,6 +2,9 @@ syntax = "proto3";
 
 package auth;
 
+// Import the well-known Timestamp type
+import "google/protobuf/timestamp.proto";
+
 // Define the User entity
 message User {
   string id = 1;
@@ -9,12 +12,12 @@ message User {
   string email = 3;
   string mobile = 4;
   string verificationCode = 5;
-  string verfiedAt= 6;
-  string verifyCodeExpireDate = 7;
+  google.protobuf.Timestamp verfiedAt= 6;
+  google.protobuf.Timestamp verifyCodeExpireDate = 7;
   int32 verifyStatus = 8;
-  string createdAt = 9;
-  string updatedAt = 10;
-  string deletedAt = 11;
+  google.protobuf.Timestamp createdAt = 9;
+  google.protobuf.Timestamp updatedAt = 10;
+  google.protobuf.Timestamp deletedAt = 11;
 }
 
 service AuthService {
