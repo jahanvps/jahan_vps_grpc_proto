@@ -9,7 +9,7 @@ message Package {
   string dur = 4;
   string price = 5;
   string title= 6;
-  int32 descJson = 7;
+  string descJson = 7;
   string status = 8;
   string descHTML = 9;
   string createdAt = 10;
@@ -21,7 +21,7 @@ message PackageDto {
   string dur = 3;
   string price = 4;
   string title= 5;
-  int32 descJson = 6;
+  string descJson = 6;
   string status = 7;
   string descHTML = 8;
 }
@@ -33,7 +33,7 @@ message PackageDtoWithId {
   string dur = 4;
   string price = 5;
   string title= 6;
-  int32 descJson = 7;
+  string descJson = 7;
   string status = 8;
   string descHTML = 9;
 }
