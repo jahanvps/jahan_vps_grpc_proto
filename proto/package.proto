@@ -39,11 +39,11 @@ message PackageDtoWithId {
 }
 
 service PackageService {
-  rpc GetPkgById (PkgByIdRequest) returns (PkgsResponse) {}
+  rpc FindOne (PkgByIdRequest) returns (PkgsResponse) {}
+  rpc Create (PackageDto) returns (PkgsResponse) {}
+  rpc DeleteOne (PkgByIdRequest) returns (PkgsResponse) {}
+  rpc UpdateOne (PackageDtoWithId) returns (PkgsResponse) {}
   rpc GetActivePkgs (PkgsRequest) returns (PkgsResponse) {}
-  rpc AddPkg (PackageDto) returns (PkgsResponse) {}
-  rpc DelPkg (PkgByIdRequest) returns (PkgsResponse) {}
-  rpc UpdatePkg (PackageDtoWithId) returns (PkgsResponse) {}
 }
 
 message PkgByIdRequest {
