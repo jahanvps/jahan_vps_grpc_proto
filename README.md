@@ -1,1 +1,1 @@
-Proto files for whole project
+Proto files for whole project.
