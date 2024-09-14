@@ -12,6 +12,7 @@ service NotifService {
 message ResetPasswordRequest {
   string token = 1;
   string mobile = 2;
+  string userId = 3;
 }
 
 message SuccessfullVerifiedRequest {
