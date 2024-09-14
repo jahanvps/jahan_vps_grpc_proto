@@ -3,9 +3,17 @@ import { simpleGit, CleanOptions } from 'simple-git';
 
 const git = simpleGit().clean(CleanOptions.FORCE);
 
-  console.log('task puller!! started');
+console.log('task puller!! started');
 cron.schedule('*/1 * * * *', async () => {
-  console.log('running a task every minute');
-  const res = await git.pull();
-  console.log(res);
+  try {
+    console.log('running a task every minute');
+    const res = await git.pull();
+    const chCount = parseInt(res.summary.changes);
+    console.log(chCount);
+    if(chCount > 0){
+
+    }
+  } catch (error) {
+    console.log(error)
+  }
 });
