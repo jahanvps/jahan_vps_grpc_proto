@@ -22,9 +22,11 @@ service AuthService {
   rpc Login (LoginRequest) returns (LoginResponse) {}
   rpc Validate (ValidateRequest) returns (ValidateResponse) {}
   rpc VerifyOtp (VerifyOtpRequest) returns (LoginResponse) {}
-  rpc VerifyUser (VerifyUserRequest) returns (VerifyUserResponse) {}
   rpc ForgetPassword (ForgetPasswordRequest) returns (ForgetPasswordResponse) {}
   rpc ResetPassword (ForgetPasswordRequest) returns (ResetPasswordResponse) {}
+
+  // Utility Methods
+  rpc VerifyUser (VerifyUserRequest) returns (VerifyUserResponse) {}
 }
 
 // Forget Password 
