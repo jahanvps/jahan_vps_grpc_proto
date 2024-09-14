@@ -16,4 +16,4 @@ cron.schedule('*/1 * * * *', async () => {
   } catch (error) {
     console.log(error)
   }
-});
+})
