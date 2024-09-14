@@ -4,10 +4,15 @@ package notif;
 
 service NotifService {
   rpc sendOtp (MobileVerifyCodeRequest) returns (MobileVerifyCodeResponse) {}
+  rpc ResetPassword (ResetPasswordRequest) returns (MobileVerifyCodeResponse) {}
   rpc SuccessfullVerified (SuccessfullVerifiedRequest) returns (MobileVerifyCodeResponse) {}
 }
 
 // Successfull Verified
+message ResetPasswordRequest {
+  string token = 1;
+}
+
 message SuccessfullVerifiedRequest {
   string userid = 1;
 }
