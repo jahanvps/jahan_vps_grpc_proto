@@ -11,7 +11,7 @@ message User {
   string verificationCode = 5;
   string verfiedAt= 6;
   string verifyCodeExpireDate = 7;
-  int32 verifyStatus = 8;
+  string verifyStatus = 8;
   string createdAt = 9;
   string updatedAt = 10;
   string deletedAt = 11;
