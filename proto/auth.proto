@@ -23,7 +23,30 @@ service AuthService {
   rpc Validate (ValidateRequest) returns (ValidateResponse) {}
   rpc VerifyOtp (VerifyOtpRequest) returns (LoginResponse) {}
   rpc VerifyUser (VerifyUserRequest) returns (VerifyUserResponse) {}
+  rpc ForgetPassword (ForgetPasswordRequest) returns (ForgetPasswordResponse) {}
+  rpc ResetPassword (ForgetPasswordRequest) returns (ResetPasswordResponse) {}
 }
+
+// Forget Password 
+message ForgetPasswordRequest {
+  string mobile = 1;
+}
+
+message ResetPasswordRequest {
+  string code = 1;
+}
+
+message ForgetPasswordResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  string mobile = 3;
+}
+
+message ResetPasswordResponse {
+  int32 status = 1;
+  repeated string error = 2;
+}
+
 
 // User
 message VerifyUserRequest {
