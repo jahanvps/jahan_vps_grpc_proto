@@ -65,7 +65,8 @@ message VerifyUserResponse {
 message RegisterRequest {
   string fullname = 1;
   string mobile = 2;
-  string password = 3;
+  string email = 3;
+  string password = 4;
 }
 
 message RegisterResponse {
