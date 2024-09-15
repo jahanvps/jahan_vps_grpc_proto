@@ -4,9 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "supervisor -- task.js -w -RV",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Kevin Vogel",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "node-cron": "^3.0.3",
+    "simple-git": "^3.26.0"
+  },
+  "type": "module"
 }
