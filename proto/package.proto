@@ -31,7 +31,7 @@ message PackageDtoWithId {
   string name = 2;
   string expDate = 3;
   string dur = 4;
-  string price = 5;
+  int32 price = 5;
   string title= 6;
   string descJson = 7;
   string status = 8;
