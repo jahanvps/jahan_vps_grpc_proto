@@ -5,7 +5,8 @@ package package;
 message Package {
   string id = 1;
   string name = 2;
-  string dur = 4;
+  int32 dur = 3;
+  string durType = 4;
   int32 price = 5;
   string title= 6;
   optional string descJson = 7;
@@ -16,23 +17,25 @@ message Package {
 
 message PackageDto {
   string name = 1;
-  string dur = 2;
-  int32 price = 3;
-  string title= 4;
-  optional string descJson = 5;
-  string status = 6;
-  optional string descHTML = 7;
-}
-
-message PackageDtoWithId {
-  string id = 1;
-  string name = 2;
-  string dur = 3;
+  int32 dur = 2;
+  string durType = 3;
   int32 price = 4;
   string title= 5;
   optional string descJson = 6;
   string status = 7;
   optional string descHTML = 8;
+}
+
+message PackageDtoWithId {
+  string id = 1;
+  string name = 2;
+  int32 dur = 3;
+  string durType = 4;
+  int32 price = 5;
+  string title= 6;
+  optional string descJson = 7;
+  string status = 8;
+  optional string descHTML = 9;
 }
 
 service PackageService {
