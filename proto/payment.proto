@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package payment;
+
+service PaymentService {
+  rpc Payment (PaymentRequest) returns (PaymentResponse) {}
+//   rpc VerifyPayment (VerifyPaymentRequest) returns (VerifyPaymentResponse) {}
+}
+
+message PaymentRequest {
+    int32 amount = 1;
+    string description = 2;
+    optional string email = 3;
+    optional string mobile = 4;    
+}
+
+message PaymentResponse {
+    int32 status = 1;
+    repeated string errors = 2;
+    string paymentUrl = 3;
+}
