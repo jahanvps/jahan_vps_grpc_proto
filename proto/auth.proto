@@ -17,6 +17,16 @@ message User {
   string deletedAt = 11;
 }
 
+message UserValidate {
+  string id = 1;
+  string fullName = 2;
+  string email = 3;
+  string mobile = 4;
+  string verifyStatus = 5;
+  optional string verfiedAt= 6;
+  string createdAt = 7;
+}
+
 service AuthService {
   rpc Register (RegisterRequest) returns (RegisterResponse) {}
   rpc Login (LoginRequest) returns (LoginResponse) {}
@@ -84,7 +94,8 @@ message LoginRequest {
 message LoginResponse {
   int32 status = 1;
   repeated string error = 2;
-  string token = 3;
+  string accessToken = 3;
+  string refreshToken = 4;
 }
 
 // Validate
@@ -96,7 +107,7 @@ message ValidateRequest {
 message ValidateResponse {
   int32 status = 1;
   repeated string error = 2;
-  string userId = 3;
+  UserValidate user = 3;
 }
 
 // Otp
