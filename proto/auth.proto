@@ -35,9 +35,20 @@ service AuthService {
   rpc ForgetPassword (ForgetPasswordRequest) returns (ForgetPasswordResponse) {}
   rpc ResetPassword (ResetPasswordRequest) returns (ResetPasswordResponse) {}
   rpc RefreshToken (RefreshTokenRequest) returns (LoginResponse){}
+  rpc ResendOtp(ResendOtpRequest) returns (ResendOtpResponse){}
 
   // Utility Methods
   rpc VerifyUser (VerifyUserRequest) returns (VerifyUserResponse) {}
+}
+
+// Resend Otp Request
+message ResendOtpRequest { 
+ string mobile = 1;
+}
+message ResendOtpResponse { 
+  int32 status = 1;
+  repeated string error = 2;
+  string message = 3;
 }
 
 // Refresh Token 
