@@ -34,9 +34,15 @@ service AuthService {
   rpc VerifyOtp (VerifyOtpRequest) returns (LoginResponse) {}
   rpc ForgetPassword (ForgetPasswordRequest) returns (ForgetPasswordResponse) {}
   rpc ResetPassword (ResetPasswordRequest) returns (ResetPasswordResponse) {}
+  rpc RefreshToken (RefreshTokenRequest) returns (LoginResponse){}
 
   // Utility Methods
   rpc VerifyUser (VerifyUserRequest) returns (VerifyUserResponse) {}
+}
+
+// Refresh Token 
+message RefreshTokenRequest {
+  string refreshToken =1;
 }
 
 // Forget Password 
