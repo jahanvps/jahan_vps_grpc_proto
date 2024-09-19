@@ -7,6 +7,7 @@ console.log('task puller!! started');
 cron.schedule('*/1 * * * *', async () => {
   try {
     console.log('running a task every minute');
+    const ress = await git.stash();
     const res = await git.pull();
     const chCount = parseInt(res.summary.changes);
     console.log(chCount);
