@@ -41,10 +41,10 @@ service AuthService {
   rpc VerifyUser (VerifyUserRequest) returns (VerifyUserResponse) {}
 
   // users 
-  rpc FindAllUsers (SearchQueryRequest) returns (UsersResponse) {}
-  rpc FindOneUser (FindOneUserRequest) returns (UsersResponse) {}
-  rpc DeleteOneUser(FindOneUserRequest) returns (UsersResponse) {}
-  rpc UpdateOneUser(UpdateUserRequest) returns (UsersResponse) {}
+  rpc FindAllUsers (SearchQueryRequest) returns (PaginatedUserResponse) {}
+  rpc FindOneUser (FindOneUserRequest) returns (UserResponse) {}
+  rpc DeleteOneUser(FindOneUserRequest) returns (UserResponse) {}
+  rpc UpdateOneUser(UpdateUserRequest) returns (UserResponse) {}
 }
 
 
@@ -91,10 +91,16 @@ repeated User2 users = 1;
 optional PaginationData paginationInfo = 2;
 }
 
-message UsersResponse {
+message PaginatedUserResponse {
   int32 status = 1;
   repeated string error = 2;
   ResultData data = 3;
+}
+
+message UserResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  User2 user = 3;
 }
 
 // Resend Otp Request
