@@ -79,10 +79,22 @@ message UpdateUserRequest {
   optional string role = 6;
 }
 
+message PaginationData {
+  int32 totalCount = 1;
+  int32 page = 2;
+  int32 limit = 3;
+  int32 pageCount = 4;
+}
+
+message ResultData {
+repeated User2 users = 1;
+optional PaginationData paginationInfo = 2;
+}
+
 message UsersResponse {
   int32 status = 1;
   repeated string error = 2;
-  repeated User2 users = 3;
+  ResultData data = 3;
 }
 
 // Resend Otp Request
