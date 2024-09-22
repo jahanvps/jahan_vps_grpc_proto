@@ -36,7 +36,8 @@ message FindOneUserRequest {
 }
 
 message SearchQueryRequest {
-
+  optional int32 page = 1;
+  optional int32 limit = 2;
 }
 
 message UpdateUserRequest {
