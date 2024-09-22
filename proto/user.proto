@@ -2,6 +2,13 @@ syntax = "proto3";
 
 package user;
 
+service UserService {
+  rpc FindAll (SearchQueryRequest) returns (UsersResponse) {}
+  rpc FindOne (FindOneUserRequest) returns (UsersResponse) {}
+  rpc DeleteOne(FindOneUserRequest) returns (UsersResponse) {}
+  rpc UpdateOne(UpdateUserRequest) returns (UsersResponse) {}
+}
+
 // Define the User entity
 message User {
   string id = 1;
@@ -22,13 +29,6 @@ message UserValidate {
   string verifyStatus = 5;
   optional string verfiedAt= 6;
   string createdAt = 7;
-}
-
-service UserService {
-  rpc FindAll (SearchQueryRequest) returns (UsersResponse) {}
-  rpc FindOne (FindOneUserRequest) returns (UsersResponse) {}
-  rpc DeleteOne(FindOneUserRequest) returns (UsersResponse) {}
-  rpc UpdateOne(UpdateUserRequest) returns (UsersResponse) {}
 }
 
 message FindOneUserRequest {
