@@ -143,6 +143,6 @@ message PkgsResponse {
 message PkgResponse {
   int32 status = 1;
   repeated string error = 2;
-  Package packages = 3;
+  Package package = 3;
 }
 
