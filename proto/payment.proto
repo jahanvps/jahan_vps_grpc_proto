@@ -19,7 +19,7 @@ message Payment {
   string failurereason = 14;
   string successmessage = 15;
   string metadata = 16;
-  string refI=id = 17;
+  string refid = 17;
   string feetype = 18;
   string zarinpalfee = 19;
   string paymentcompletedat = 20;
