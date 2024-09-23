@@ -16,8 +16,8 @@ message TransactionLog {
   string ipAddress = 11;
   string additionalData = 12;
 
-  string createdat = 22;
-  string updatedat = 23;
+  string createdAt = 13;
+  string updatedAt = 14;
 }
 
 message Payment {
