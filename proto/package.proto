@@ -77,6 +77,7 @@ service PackageService {
   rpc GetActivePkgs (SearchQueryRequest) returns (PaginatedResponse) {}
 
   // user package
+  rpc GetPckgUserById (PkgByIdRequest) returns (UserPackageResponse) {}
   rpc GetActivePkgUsersByUserId (GetPckgUsersByUserIdRequest) returns (PaginatedUserPackagesResponse) {}
   rpc GetAllPkgUsersByUserId (GetPckgUsersByUserIdRequest) returns (PaginatedUserPackagesResponse) {}
   rpc DelPkgUserByPkgUserId (PkgByIdRequest) returns (UserPackageResponse) {}
