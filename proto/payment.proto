@@ -2,9 +2,80 @@ syntax = "proto3";
 
 package payment;
 
+message TransactionLog {
+  string id = 1;
+  string paymentId = 2;
+  Payment payment = 3;
+  string transactionType = 4;
+  string userAgent= 5;
+  string userId = 6;
+  string statusFrom = 7;
+  string statusTo = 8;
+  string message = 9;
+  string errorCode = 10;
+  string ipAddress = 11;
+  string additionalData = 12;
+
+  string createdAt = 13;
+  string updatedAt = 14;
+}
+
+message Payment {
+  string id = 1;
+  string isverify = 2;
+  string authority = 3;
+  string amount = 4;
+  string description= 5;
+  string invoiceid = 6;
+  string currency = 7;
+  string status = 8;
+  string paiddatesolar = 9;
+  string paymentcreateddatesolar = 10;
+  string userid = 11;
+  string packageid = 12;
+  string cardhash = 13;
+  string failurereason = 14;
+  string successmessage = 15;
+  string metadata = 16;
+  string refid = 17;
+  string feetype = 18;
+  string zarinpalfee = 19;
+  string paymentcompletedat = 20;
+  repeated TransactionLog transactionlogs = 21;
+
+  string createdat = 22;
+  string updatedat = 23;
+}
+
+
 service PaymentService {
   rpc Payment (PaymentRequest) returns (PaymentResponse) {}
+  rpc FindAllPayments (SearchQueryRequest) returns (PaginatedPaymentResponse) {}
+
 //   rpc VerifyPayment (VerifyPaymentRequest) returns (VerifyPaymentResponse) {}
+}
+
+message SearchQueryRequest {
+  optional int32 page = 1;
+  optional int32 limit = 2;
+}
+
+message PaginationData {
+  int32 totalCount = 1;
+  int32 page = 2;
+  int32 limit = 3;
+  int32 pageCount = 4;
+}
+
+message ResultData {
+repeated Payment payments = 1;
+optional PaginationData paginationInfo = 2;
+}
+
+message PaginatedPaymentResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  ResultData data = 3;
 }
 
 message PaymentRequest {
