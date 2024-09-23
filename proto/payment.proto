@@ -69,7 +69,7 @@ message SearchByIdDtoRequest {
 message SearchByInvoiceIdDtoRequest {
   optional int32 page = 1;
   optional int32 limit = 2;
-  string userid = 3;
+  string invoiceid = 3;
 }
 
 
