@@ -86,6 +86,8 @@ service PackageService {
 }
 
 message ElementsResponse {
+  int32 status = 1;
+  repeated string error = 2;
   repeated string data = 1;
 }
 // For pagination query
