@@ -76,6 +76,7 @@ service PackageService {
   rpc UpdateOne (PackageDtoWithId) returns (PkgResponse) {}
   rpc GetActivePkgs (SearchQueryRequest) returns (PaginatedResponse) {}
   rpc GetPkgElementsList (ElementsRequest) returns (ElementsResponse) {}
+  rpc GetPkgsByFilter (PkgsByFilterRequest) returns (PaginatedResponse) {}
 
   // user package
   rpc GetPckgUserById (PkgByIdRequest) returns (UserPackageResponse) {}
@@ -92,6 +93,9 @@ message ElementsResponse {
 }
 message ElementsRequest {
   string elementname = 1;
+  repeated string conditions = 2;
+}
+message PkgsByFilterRequest {
   repeated string conditions = 2;
 }
 // For pagination query
