@@ -68,12 +68,12 @@ message UserPackage {
 }
 
 service PackageService {
-  rpc FindAll (SearchQueryRequest) returns (PaginatedUserResponse) {}
+  rpc FindAll (SearchQueryRequest) returns (PaginatedResponse) {}
   rpc FindOne (PkgByIdRequest) returns (PkgResponse) {}
   rpc Create (PackageDto) returns (PkgResponse) {}
   rpc DeleteOne (PkgByIdRequest) returns (PkgResponse) {}
   rpc UpdateOne (PackageDtoWithId) returns (PkgResponse) {}
-  rpc GetActivePkgs (SearchQueryRequest) returns (PaginatedUserResponse) {}
+  rpc GetActivePkgs (SearchQueryRequest) returns (PaginatedResponse) {}
 
   // user package
   rpc GetActivePkgUsersByUserId (GetPckgUsersByUserIdRequest) returns (PaginatedUserPackagesResponse) {}
