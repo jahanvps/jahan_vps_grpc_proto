@@ -92,7 +92,7 @@ message ElementsResponse {
 }
 message ElementsRequest {
   string elementname = 1;
-  optional repeated string conditions = 2;
+  repeated string conditions = 2;
 }
 // For pagination query
 message SearchQueryRequest {
