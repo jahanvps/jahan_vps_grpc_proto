@@ -23,7 +23,7 @@ message Payment {
   string feetype = 18;
   string zarinpalfee = 19;
   string paymentcompletedat = 20;
-  string transactionlogs = 21;
+  repeated string transactionlogs = 21;
 
   string createdat = 22;
   string updatedat = 23;
