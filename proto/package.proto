@@ -101,7 +101,7 @@ repeated Package packages = 1;
 optional PaginationData paginationInfo = 2;
 }
 
-message PaginatedUserResponse {
+message PaginatedResponse {
   int32 status = 1;
   repeated string error = 2;
   ResultData data = 3;
