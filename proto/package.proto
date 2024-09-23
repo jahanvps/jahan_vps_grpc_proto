@@ -109,6 +109,7 @@ message PaginationData {
 message ResultData {
 repeated Package packages = 1;
 optional PaginationData paginationInfo = 2;
+optional repeated string others = 3;
 }
 
 message PaginatedResponse {
