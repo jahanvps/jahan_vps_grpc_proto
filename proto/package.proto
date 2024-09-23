@@ -86,7 +86,7 @@ service PackageService {
 }
 
 message ElementsResponse {
-  repeated string data;
+  repeated string data = 1;
 }
 // For pagination query
 message SearchQueryRequest {
