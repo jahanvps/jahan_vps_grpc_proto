@@ -51,7 +51,7 @@ message Payment {
 service PaymentService {
   rpc Payment (PaymentRequest) returns (PaymentResponse) {}
   rpc FindAllPayments (SearchQueryRequest) returns (PaginatedPaymentResponse) {}
-  rpc findById (SearchByIdDtoRequest) returns (PaginatedPaymentResponse) {}
+  rpc FindById (SearchByIdDtoRequest) returns (PaginatedPaymentResponse) {}
 
 //   rpc VerifyPayment (VerifyPaymentRequest) returns (VerifyPaymentResponse) {}
 }
