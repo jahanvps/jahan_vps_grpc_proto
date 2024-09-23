@@ -96,7 +96,9 @@ message ElementsRequest {
   repeated string conditions = 2;
 }
 message PkgsByFilterRequest {
-  repeated string conditions = 2;
+  optional int32 page = 1;
+  optional int32 limit = 2;
+  repeated string conditions = 3;
 }
 // For pagination query
 message SearchQueryRequest {
@@ -104,12 +106,6 @@ message SearchQueryRequest {
   optional int32 limit = 2;
 }
 
-message SearchElementsQueryRequest {
-  optional int32 page = 1;
-  optional int32 limit = 2;
-  string elementname = 3;
-  string conditions = 4;
-}
 
 // For Pagination
 message PaginationData {
