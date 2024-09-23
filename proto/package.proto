@@ -45,14 +45,15 @@ message PackageDto {
 
 message PackageDtoWithId {
   string id = 1;
-  string name = 2;
-  int32 dur = 3;
-  string durType = 4;
-  int32 price = 5;
-  string title= 6;
-  optional string descJson = 7;
-  string status = 8;
-  optional string descHTML = 9;
+  optional string name = 2;
+  optional int32 dur = 3;
+  optional string durType = 4;
+  optional int32 price = 5;
+  optional string title= 6;
+  optional string description= 7;
+  optional PackageProperties properties = 8;
+  optional string status = 9;
+  optional string descHTML = 10;
 }
 
 message UserPackage {
@@ -125,10 +126,15 @@ message UserPackageResponse {
   UserPackage userPackage = 3;
 }
 
+message UserPackagesResultData {
+repeated UserPackage userPackages = 1;
+optional PaginationData paginationInfo = 2;
+}
+
 message PaginatedUserPackagesResponse {
   int32 status = 1;
   repeated string error = 2;
-  ResultData data = 3;
+  UserPackagesResultData data = 3;
 }
 
 message PkgByIdRequest {
