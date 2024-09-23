@@ -2,9 +2,27 @@ syntax = "proto3";
 
 package payment;
 
+message TransactionLog {
+  string id = 1;
+  string paymentId = 2;
+  Payment payment = 3;
+  string transactionType = 4;
+  string userAgent= 5;
+  string userId = 6;
+  string statusFrom = 7;
+  string statusTo = 8;
+  string message = 9;
+  string errorCode = 10;
+  string ipAddress = 11;
+  string additionalData = 12;
+
+  string createdat = 22;
+  string updatedat = 23;
+}
+
 message Payment {
   string id = 1;
-  string isverify = 2;
+  string payment = 2;
   string authority = 3;
   string amount = 4;
   string description= 5;
@@ -23,7 +41,7 @@ message Payment {
   string feetype = 18;
   string zarinpalfee = 19;
   string paymentcompletedat = 20;
-  repeated string transactionlogs = 21;
+  repeated TransactionLog transactionlogs = 21;
 
   string createdat = 22;
   string updatedat = 23;
