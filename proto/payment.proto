@@ -51,6 +51,7 @@ message Payment {
 service PaymentService {
   rpc Payment (PaymentRequest) returns (PaymentResponse) {}
   rpc FindAllPayments (SearchQueryRequest) returns (PaginatedPaymentResponse) {}
+  rpc findById (SearchByIdDtoRequest) returns (PaginatedPaymentResponse) {}
 
 //   rpc VerifyPayment (VerifyPaymentRequest) returns (VerifyPaymentResponse) {}
 }
@@ -58,6 +59,11 @@ service PaymentService {
 message SearchQueryRequest {
   optional int32 page = 1;
   optional int32 limit = 2;
+}
+message SearchByIdDtoRequest {
+  optional int32 page = 1;
+  optional int32 limit = 2;
+  string userid = 3;
 }
 
 message PaginationData {
