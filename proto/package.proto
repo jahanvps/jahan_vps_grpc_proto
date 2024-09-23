@@ -69,10 +69,10 @@ message UserPackage {
 
 service PackageService {
   rpc FindAll (SearchQueryRequest) returns (PaginatedUserResponse) {}
-  rpc FindOne (PkgByIdRequest) returns (PkgsResponse) {}
-  rpc Create (PackageDto) returns (PkgsResponse) {}
-  rpc DeleteOne (PkgByIdRequest) returns (PkgsResponse) {}
-  rpc UpdateOne (PackageDtoWithId) returns (PkgsResponse) {}
+  rpc FindOne (PkgByIdRequest) returns (PkgResponse) {}
+  rpc Create (PackageDto) returns (PkgResponse) {}
+  rpc DeleteOne (PkgByIdRequest) returns (PkgResponse) {}
+  rpc UpdateOne (PackageDtoWithId) returns (PkgResponse) {}
   rpc GetActivePkgs (SearchQueryRequest) returns (PaginatedUserResponse) {}
 
   // user package
@@ -139,5 +139,10 @@ message PkgsResponse {
   int32 status = 1;
   repeated string error = 2;
   repeated Package packages = 3;
+}
+message PkgResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  Package packages = 3;
 }
 
