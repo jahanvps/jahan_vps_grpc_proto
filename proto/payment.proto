@@ -22,7 +22,7 @@ message TransactionLog {
 
 message Payment {
   string id = 1;
-  string payment = 2;
+  string isverify = 2;
   string authority = 3;
   string amount = 4;
   string description= 5;
