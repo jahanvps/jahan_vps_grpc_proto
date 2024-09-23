@@ -38,6 +38,18 @@ message PackageDtoWithId {
   optional string descHTML = 9;
 }
 
+message UserPackage {
+  string id = 1;
+  string userId = 2;
+  string packageId = 3;
+  string buyDate = 4;
+  string status = 5;
+  string packageInfo = 6;
+  string userInfo = 7;
+  string createdAt = 8;
+  string updatedAt = 9;
+}
+
 service PackageService {
   rpc FindOne (PkgByIdRequest) returns (PkgsResponse) {}
   rpc Create (PackageDto) returns (PkgsResponse) {}
@@ -46,10 +58,45 @@ service PackageService {
   rpc GetActivePkgs (PkgsRequest) returns (PkgsResponse) {}
 
   // user package
-  rpc GetActivePkgUsersByUserId (PkgByIdRequest) returns (PkgsResponse) {}
-  rpc GetAllPkgUsersByUserId (PkgByIdRequest) returns (PkgsResponse) {}
-  rpc DelPkgUserByPkgUserId (PkgByIdRequest) returns (PkgsResponse) {}
-  // rpc AddPkgUser (PkgByIdRequest) returns (PkgsResponse) {}
+  rpc GetActivePkgUsersByUserId (GetPckgUsersByUserIdRequest) returns (PaginatedUserPackagesResponse) {}
+  rpc GetAllPkgUsersByUserId (GetPckgUsersByUserIdRequest) returns (PaginatedUserPackagesResponse) {}
+  rpc DelPkgUserByPkgUserId (PkgByIdRequest) returns (UserPackageResponse) {}
+  rpc AddPkgUser (AddPckgUserRequest) returns (UserPackageResponse) {}
+}
+
+message AddPckgUserRequest {
+  string userId = 1;
+  string packageId = 2;
+}
+
+message GetPckgUsersByUserIdRequest {
+  string id = 1;
+  optional int32 page = 2;
+  optional int32 limit = 3;
+}
+
+message UserPackageResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  UserPackage userPackage = 3;
+}
+
+message PaginationData {
+  int32 totalCount = 1;
+  int32 page = 2;
+  int32 limit = 3;
+  int32 pageCount = 4;
+}
+
+message ResultData {
+  repeated UserPackage userPackages = 1;
+  optional PaginationData paginationInfo = 2;
+}
+
+message PaginatedUserPackagesResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  ResultData data = 3;
 }
 
 message PkgByIdRequest {
