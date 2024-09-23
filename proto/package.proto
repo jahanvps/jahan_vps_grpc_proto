@@ -9,10 +9,26 @@ message Package {
   string durType = 4;
   int32 price = 5;
   string title= 6;
-  optional string descJson = 7;
-  string status = 8;
-  optional string descHTML = 9;
-  string createdAt = 10;
+  optional string description= 7;
+  PackageProperties properties = 8;
+  string status = 9;
+  optional string descHTML = 10;
+  string createdAt = 11;
+}
+
+message PackageProperties {
+  string country = 1;
+  PackageHardware hardware = 2;
+  int32 bandwith = 3;
+  string os = 4;
+  string osVersion = 5;
+}
+
+message PackageHardware {
+  int32 cores = 1;
+  int32 ram = 2;
+  int32 disk = 3;
+  string diskType = 4;
 }
 
 message PackageDto {
@@ -21,9 +37,10 @@ message PackageDto {
   string durType = 3;
   int32 price = 4;
   string title= 5;
-  optional string descJson = 6;
-  string status = 7;
-  optional string descHTML = 8;
+  optional string description= 6;
+  PackageProperties properties = 7;
+  string status = 8;
+  optional string descHTML = 9;
 }
 
 message PackageDtoWithId {
@@ -51,11 +68,12 @@ message UserPackage {
 }
 
 service PackageService {
+  rpc FindAll (SearchQueryRequest) returns (PaginatedUserResponse) {}
   rpc FindOne (PkgByIdRequest) returns (PkgsResponse) {}
   rpc Create (PackageDto) returns (PkgsResponse) {}
   rpc DeleteOne (PkgByIdRequest) returns (PkgsResponse) {}
   rpc UpdateOne (PackageDtoWithId) returns (PkgsResponse) {}
-  rpc GetActivePkgs (PkgsRequest) returns (PkgsResponse) {}
+  rpc GetActivePkgs (SearchQueryRequest) returns (PaginatedUserResponse) {}
 
   // user package
   rpc GetActivePkgUsersByUserId (GetPckgUsersByUserIdRequest) returns (PaginatedUserPackagesResponse) {}
@@ -64,6 +82,32 @@ service PackageService {
   rpc AddPkgUser (AddPckgUserRequest) returns (UserPackageResponse) {}
 }
 
+// For pagination query
+message SearchQueryRequest {
+  optional int32 page = 1;
+  optional int32 limit = 2;
+}
+
+// For Pagination
+message PaginationData {
+  int32 totalCount = 1;
+  int32 page = 2;
+  int32 limit = 3;
+  int32 pageCount = 4;
+}
+
+message ResultData {
+repeated Package packages = 1;
+optional PaginationData paginationInfo = 2;
+}
+
+message PaginatedUserResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  ResultData data = 3;
+}
+
+// Package User Create
 message AddPckgUserRequest {
   string userId = 1;
   string packageId = 2;
@@ -81,18 +125,6 @@ message UserPackageResponse {
   UserPackage userPackage = 3;
 }
 
-message PaginationData {
-  int32 totalCount = 1;
-  int32 page = 2;
-  int32 limit = 3;
-  int32 pageCount = 4;
-}
-
-message ResultData {
-  repeated UserPackage userPackages = 1;
-  optional PaginationData paginationInfo = 2;
-}
-
 message PaginatedUserPackagesResponse {
   int32 status = 1;
   repeated string error = 2;
@@ -101,9 +133,6 @@ message PaginatedUserPackagesResponse {
 
 message PkgByIdRequest {
   string id = 1;
-}
-
-message PkgsRequest {
 }
 
 message PkgsResponse {
