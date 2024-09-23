@@ -75,7 +75,7 @@ service PackageService {
   rpc DeleteOne (PkgByIdRequest) returns (PkgResponse) {}
   rpc UpdateOne (PackageDtoWithId) returns (PkgResponse) {}
   rpc GetActivePkgs (SearchQueryRequest) returns (PaginatedResponse) {}
-  rpc GetPkgElementsList (SearchElementsQueryRequest) returns (PaginatedResponse) {}
+  rpc GetPkgElementsList (SearchElementsQueryRequest) returns (ElementsResponse) {}
 
   // user package
   rpc GetPckgUserById (PkgByIdRequest) returns (UserPackageResponse) {}
@@ -85,6 +85,9 @@ service PackageService {
   rpc AddPkgUser (AddPckgUserRequest) returns (UserPackageResponse) {}
 }
 
+message ElementsResponse {
+  repeated string data;
+}
 // For pagination query
 message SearchQueryRequest {
   optional int32 page = 1;
