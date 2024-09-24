@@ -1,0 +1,129 @@
+syntax = "proto3";
+
+package profile;
+
+// Define the User entity
+message Profile {
+  string id = 1;
+  string userId = 2;
+  optional string gender = 3;
+  optional string nationality = 4;
+  optional string website = 5;
+  optional string occupation= 6;
+  optional string company = 7;
+  optional string address = 8;
+  optional string city = 9;
+  optional string province = 10;
+  optional string entityType = 11;
+  optional string bio = 12;
+  optional string profileImageUrl = 13;
+  optional string birthDate = 14;
+  optional string socialLinks = 15;
+  optional string nationalCode = 16;
+  optional string howMetUs = 17;
+  string mobile = 18;
+  string email = 19;
+  string createdAt = 20;
+  string updatedAt = 21;
+  string deletedAt = 22;
+}
+
+service ProfileService {
+  rpc Create (CreateRequest) returns (ProfileResponse) {}
+  rpc FindOne (GetOneRequest) returns (ProfileResponse) {}
+  rpc FindAll (SearchQueryMessage) returns (PaginatedResponse) {}
+  rpc UpdateOne (UpdateOneRequest) returns (ProfileResponse) {}
+  rpc DeleteOne (DeleteOneRequest) returns (ProfileResponse) {}
+  rpc RestoreProfile(GetOneRequest) returns (ProfileResponse) {}
+  rpc GetProfileByEmail(ProfileByEmailRequest) returns (ProfileResponse) {}
+  rpc GetProfileByMobile(ProfileByEmailRequest) returns (ProfileResponse) {}
+}
+
+message ProfileByEmailRequest {
+  string email = 1;
+  string userId = 2;
+}
+
+message ProfileByMobileRequest {
+  string mobile = 1;
+  string userId = 2;
+}
+
+message DeleteOneRequest {
+  string profileId = 1;
+  string userId = 2;
+}
+
+message GetOneRequest {
+  string userId = 1;
+}
+
+message SearchQueryMessage {
+  optional int32 page = 1;
+  optional int32 limit = 2;
+}
+
+message ProfileResponse {
+  int32 status = 1;
+  repeated string errors = 2;
+  Profile profile = 3;
+}
+
+message PaginationData {
+  int32 totalCount = 1;
+  int32 page = 2;
+  int32 limit = 3;
+  int32 pageCount = 4;
+}
+
+message ResultData {
+repeated Profile profiles = 1;
+optional PaginationData paginationInfo = 2;
+}
+
+message PaginatedResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  ResultData data = 3;
+}
+
+message CreateRequest {
+  string userId = 2;
+  optional string gender = 3;
+  optional string nationality = 4;
+  optional string website = 5;
+  optional string occupation= 6;
+  optional string company = 7;
+  optional string address = 8;
+  optional string city = 9;
+  optional string province = 10;
+  optional string entityType = 11;
+  optional string bio = 12;
+  optional string profileImageUrl = 13;
+  optional string birthDate = 14;
+  optional string socialLinks = 15;
+  optional string nationalCode = 16;
+  optional string howMetUs = 17;
+  string mobile = 18;
+  string email = 19;
+}
+
+message UpdateOneRequest {
+  string profileId = 1;
+  string userId = 2;
+  optional string gender = 3;
+  optional string nationality = 4;
+  optional string website = 5;
+  optional string occupation= 6;
+  optional string company = 7;
+  optional string address = 8;
+  optional string city = 9;
+  optional string province = 10;
+  optional string entityType = 11;
+  optional string bio = 12;
+  optional string profileImageUrl = 13;
+  optional string birthDate = 14;
+  optional string socialLinks = 15;
+  optional string nationalCode = 16;
+  optional string howMetUs = 17;
+}
