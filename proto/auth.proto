@@ -174,6 +174,7 @@ message LoginResponse {
   repeated string error = 2;
   string accessToken = 3;
   string refreshToken = 4;
+  string userid = 5;
 }
 
 // Validate
