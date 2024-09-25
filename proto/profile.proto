@@ -126,4 +126,6 @@ message UpdateOneRequest {
   optional string socialLinks = 15;
   optional string nationalCode = 16;
   optional string howMetUs = 17;
+  optional string mobile = 18;
+  optional string email = 19;
 }
