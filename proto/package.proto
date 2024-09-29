@@ -19,7 +19,7 @@ message Package {
 message PackageProperties {
   string country = 1;
   PackageHardware hardware = 2;
-  int32 bandwith = 3;
+  int32 bandwidth = 3;
   string os = 4;
   string osVersion = 5;
 }
