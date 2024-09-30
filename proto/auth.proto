@@ -36,6 +36,7 @@ service AuthService {
   rpc ResetPassword (ResetPasswordRequest) returns (ResetPasswordResponse) {}
   rpc RefreshToken (RefreshTokenRequest) returns (LoginResponse){}
   rpc ResendOtp(ResendOtpRequest) returns (ResendOtpResponse){}
+  rpc ChangePassword(ChangePasswordRequest) returns (ForgetPasswordResponse){}
 
   // Utility Methods
   rpc VerifyUser (VerifyUserRequest) returns (VerifyUserResponse) {}
@@ -47,6 +48,10 @@ service AuthService {
   rpc UpdateOneUser(UpdateUserRequest) returns (UserResponse) {}
 }
 
+message ChangePasswordRequest{ 
+  string userId = 1;
+  string newPassword = 2;
+}
 
 // Define the User entity
 message User2 {
