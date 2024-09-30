@@ -4,20 +4,21 @@ package payment;
 
 message TransactionLog {
   string id = 1;
-  string paymentId = 2;
-  Payment payment = 3;
-  string transactionType = 4;
-  string userAgent= 5;
-  string userId = 6;
-  string statusFrom = 7;
-  string statusTo = 8;
-  string message = 9;
-  string errorCode = 10;
-  string ipAddress = 11;
-  string additionalData = 12;
-
-  string createdAt = 13;
-  string updatedAt = 14;
+  optional string paymentId = 2;
+  optional string transactionType = 3;
+  optional string userAgent= 4;
+  optional string userId = 5;
+  optional string message = 6;
+  optional string errorCode = 7;
+  optional string errorMessage = 8;
+  optional string successMessage = 9;
+  optional string paymentMethod = 10;
+  optional string paymentGateway = 11;
+  optional string metadata = 12;
+  optional string description = 13;
+  optional string ipAddress = 14;
+  string createdAt = 15;
+  string updatedAt = 16;
 }
 
 message Payment {
@@ -25,22 +26,22 @@ message Payment {
   string isverify = 2;
   string authority = 3;
   string amount = 4;
-  string description= 5;
+  optional string description= 5;
   string invoiceid = 6;
-  string currency = 7;
+  optional string currency = 7;
   string status = 8;
-  string paiddatesolar = 9;
-  string paymentcreateddatesolar = 10;
+  optional string paiddatesolar = 9;
+  optional string paymentcreateddatesolar = 10;
   string userid = 11;
   string packageid = 12;
-  string cardhash = 13;
-  string failurereason = 14;
-  string successmessage = 15;
-  string metadata = 16;
-  string refid = 17;
-  string feetype = 18;
-  string zarinpalfee = 19;
-  string paymentcompletedat = 20;
+  optional string cardhash = 13;
+  optional string failurereason = 14;
+  optional string successmessage = 15;
+  optional string metadata = 16;
+  optional string refid = 17;
+  optional string feetype = 18;
+  optional string zarinpalfee = 19;
+  optional string paymentcompletedat = 20;
   repeated TransactionLog transactionlogs = 21;
 
   string createdat = 22;
