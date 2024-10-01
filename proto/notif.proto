@@ -5,7 +5,13 @@ package notif;
 service NotifService {
   rpc sendOtp (MobileVerifyCodeRequest) returns (MobileVerifyCodeResponse) {}
   rpc ResetPassword (ResetPasswordRequest) returns (MobileVerifyCodeResponse) {}
+  rpc PaymentSucceed (PaymentSucceedRequest) returns (MobileVerifyCodeResponse) {}
   rpc SuccessfullVerified (SuccessfullVerifiedRequest) returns (MobileVerifyCodeResponse) {}
+}
+
+message PaymentSucceedRequest {
+  string userFullname = 1;
+  string invoiceId = 2;
 }
 
 // Successfull Verified
