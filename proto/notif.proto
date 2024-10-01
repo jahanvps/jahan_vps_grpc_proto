@@ -10,7 +10,7 @@ service NotifService {
 }
 
 message PaymentSucceedRequest {
-  string userFullname = 1;
+  string userId = 1;
   string invoiceId = 2;
 }
 
