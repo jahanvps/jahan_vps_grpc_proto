@@ -97,6 +97,7 @@ message PaymentRequest {
     string pckgId = 2;
     string description = 3;
     int32 duration = 4;
+    string durationType = 5;
 }
 
 message PaymentResponse {
