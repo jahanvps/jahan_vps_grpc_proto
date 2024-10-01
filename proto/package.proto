@@ -62,6 +62,8 @@ message UserPackage {
   string packageId = 3;
   string buyDate = 4;
   optional string status = 5;
+  int32 duration = 5;
+  optional string durationType = 5;
   string packageInfo = 6;
   string userInfo = 7;
   string createdAt = 8;
