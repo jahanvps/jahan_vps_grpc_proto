@@ -62,10 +62,12 @@ message UserPackage {
   string packageId = 3;
   string buyDate = 4;
   optional string status = 5;
-  string packageInfo = 6;
-  string userInfo = 7;
-  string createdAt = 8;
-  string updatedAt = 9;
+  int32 duration = 6;
+  optional string durationType = 7;
+  string packageInfo = 8;
+  string userInfo = 9;
+  string createdAt = 10;
+  string updatedAt = 11;
 }
 
 service PackageService {
@@ -130,6 +132,8 @@ message PaginatedResponse {
 message AddPckgUserRequest {
   string userId = 1;
   string packageId = 2;
+  int32 duration = 3;
+  string durationType = 4;
 }
 
 message GetPckgUsersByUserIdRequest {
