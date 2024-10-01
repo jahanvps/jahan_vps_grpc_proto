@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package upload;
+
+service PackageService {
+  rpc FindAll (SearchQueryRequest) returns (PaginatedResponse) {}
+}
+
+message SearchQueryRequest {}
+message PaginatedResponse {}
