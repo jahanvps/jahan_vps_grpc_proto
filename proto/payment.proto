@@ -53,24 +53,42 @@ service PaymentService {
   rpc Payment (PaymentRequest) returns (PaymentResponse) {}
   rpc FindAllPayments (SearchQueryRequest) returns (PaginatedPaymentResponse) {}
   rpc FindByUserId (SearchByIdDtoRequest) returns (PaginatedPaymentResponse) {}
-  rpc FindByInvoiceId (SearchByInvoiceIdDtoRequest) returns (PaginatedPaymentResponse) {}
+  rpc FindByInvoiceId (SearchByInvoiceIdDtoRequest) returns (SinglePaymentResponse) {}
+  rpc FindByRefId (SearchByRefIdDtoRequest) returns (SinglePaymentResponse) {} 
+  rpc FindByPackageId(SearchByPackageIdDtoRequest) returns (PaginatedPaymentResponse) {}
 
 //   rpc VerifyPayment (VerifyPaymentRequest) returns (VerifyPaymentResponse) {}
+}
+
+message SinglePaymentResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  Payment payment = 3;
 }
 
 message SearchQueryRequest {
   optional int32 page = 1;
   optional int32 limit = 2;
 }
+
 message SearchByIdDtoRequest {
   optional int32 page = 1;
   optional int32 limit = 2;
   string userid = 3;
 }
-message SearchByInvoiceIdDtoRequest {
+
+message SearchByPackageIdDtoRequest {
   optional int32 page = 1;
   optional int32 limit = 2;
-  string invoiceid = 3;
+  string userid = 3;
+}
+
+message SearchByInvoiceIdDtoRequest {
+  string invoiceid = 1;
+}
+
+message SearchByRefIdDtoRequest {
+  string refId = 1;
 }
 
 
