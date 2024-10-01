@@ -46,6 +46,8 @@ message Payment {
 
   string createdat = 22;
   string updatedat = 23;
+  optional string duration = 24;
+  optional string durationType = 25;
 }
 
 
