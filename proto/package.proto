@@ -82,7 +82,7 @@ service PackageService {
 
   // user package
   rpc GetPckgUserById (PkgByIdRequest) returns (UserPackageResponse) {}
-  rpc GetPckgUserByUserId (PkgByIdRequest) returns (UserPackageResponse) {}
+  rpc GetPckgUserByUserId (PkgByIdRequest) returns (PaginatedUserPackagesResponse) {}
   rpc GetActivePkgUsersByUserId (GetPckgUsersByUserIdRequest) returns (PaginatedUserPackagesResponse) {}
   rpc GetAllPkgUsersByUserId (GetPckgUsersByUserIdRequest) returns (PaginatedUserPackagesResponse) {}
   rpc DelPkgUserByPkgUserId (PkgByIdRequest) returns (UserPackageResponse) {}
