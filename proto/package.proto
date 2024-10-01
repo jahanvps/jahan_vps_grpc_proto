@@ -132,6 +132,8 @@ message PaginatedResponse {
 message AddPckgUserRequest {
   string userId = 1;
   string packageId = 2;
+  string duration = 3;
+  string durationType = 4;
 }
 
 message GetPckgUsersByUserIdRequest {
