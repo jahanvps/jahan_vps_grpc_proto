@@ -68,7 +68,7 @@ message UserPackage {
   string userInfo = 9;
   string createdAt = 10;
   string updatedAt = 11;
-  string description = 12;
+  optional string description = 12;
 }
 
 service PackageService {
