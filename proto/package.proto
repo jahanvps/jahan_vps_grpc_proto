@@ -134,6 +134,7 @@ message AddPckgUserRequest {
   string packageId = 2;
   int32 duration = 3;
   string durationType = 4;
+  string description = 5;
 }
 
 message GetPckgUsersByUserIdRequest {
