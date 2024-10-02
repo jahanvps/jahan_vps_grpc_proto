@@ -68,6 +68,7 @@ message UserPackage {
   string userInfo = 9;
   string createdAt = 10;
   string updatedAt = 11;
+  optional string description = 12;
 }
 
 service PackageService {
@@ -82,6 +83,7 @@ service PackageService {
 
   // user package
   rpc GetPckgUserById (PkgByIdRequest) returns (UserPackageResponse) {}
+  rpc GetPckgUserByUserId (GetPckgUsersByUserIdRequest) returns (PaginatedUserPackagesResponse) {}
   rpc GetActivePkgUsersByUserId (GetPckgUsersByUserIdRequest) returns (PaginatedUserPackagesResponse) {}
   rpc GetAllPkgUsersByUserId (GetPckgUsersByUserIdRequest) returns (PaginatedUserPackagesResponse) {}
   rpc DelPkgUserByPkgUserId (PkgByIdRequest) returns (UserPackageResponse) {}
