@@ -58,7 +58,6 @@ service PaymentService {
   rpc FindByInvoiceId (SearchByInvoiceIdDtoRequest) returns (SinglePaymentResponse) {}
   rpc FindByRefId (SearchByRefIdDtoRequest) returns (SinglePaymentResponse) {}
   rpc FindByPackageId(SearchByPackageIdDtoRequest) returns (PaginatedPaymentResponse) {}
-  
   rpc FindByStatus(SearchByStatusRequest) returns (PaginatedPaymentResponse) {}
   rpc FindByAuthority (SearchByAuthoriyRequest) returns (SinglePaymentResponse) {}
   rpc UpdatePaymentStatus(UpdatePaymentStatusRequest) returns (SinglePaymentResponse) {}
@@ -66,6 +65,14 @@ service PaymentService {
   rpc FindPaymentsBetweenTwoDates (FindPaymentsBetweenTwoDatesRequest) returns (PaginatedPaymentResponse) {}
   rpc GetPaymentsWithTransactionLogs (SearchQueryRequest) returns (PaginatedPaymentResponse) {}
   rpc GetPaymentWithTransactionLogs (PaymentIdRequest) returns (SinglePaymentResponse) {}
+
+  rpc GetTransactionLogsForPayment (PaymentIdRequest) returns (PaginatedTransactionLogResponse) {}
+  rpc GetTransactionLogsForUser (UserIdRequest) returns (PaginatedTransactionLogResponse) {}
+  rpc GetTransactionLogsByType (GetLogsByTypeRequest) returns (PaginatedTransactionLogResponse) {}
+}
+
+message GetLogsByTypeRequest {
+  string transactionType = 1;
 }
 
 message FindPaymentsBetweenTwoDatesRequest {
@@ -75,6 +82,10 @@ message FindPaymentsBetweenTwoDatesRequest {
 
 message PaymentIdRequest {
   string paymentId = 1;
+}
+
+message UserIdRequest {
+  string userId = 1;
 }
 
 message SinglePaymentResponse {
@@ -135,10 +146,20 @@ repeated Payment payments = 1;
 optional PaginationData paginationInfo = 2;
 }
 
+message TransactionLogResultData {
+repeated TransactionLog transactionLogs = 1;
+optional PaginationData paginationInfo = 2;
+}
+
 message PaginatedPaymentResponse {
   int32 status = 1;
   repeated string error = 2;
   ResultData data = 3;
+}
+message PaginatedTransactionLogResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  TransactionLogResultData data = 3;
 }
 
 message PaymentRequest {
