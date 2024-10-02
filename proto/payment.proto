@@ -56,8 +56,22 @@ service PaymentService {
   rpc FindByInvoiceId (SearchByInvoiceIdDtoRequest) returns (SinglePaymentResponse) {}
   rpc FindByRefId (SearchByRefIdDtoRequest) returns (SinglePaymentResponse) {} 
   rpc FindByPackageId(SearchByPackageIdDtoRequest) returns (PaginatedPaymentResponse) {}
+  rpc FindByStatus(SearchByStatusRequest) returns (PaginatedPaymentResponse) {}
+  rpc FindByAuthority (SearchByAuthoriyRequest) returns (SinglePaymentResponse) {}
+  rpc UpdatePaymentStatus(UpdatePaymentStatusRequest) returns (SinglePaymentResponse) {}
+  rpc MarkPaymentAsVerified (PaymentIdRequest) returns (SinglePaymentResponse) {}
+  rpc FindPaymentsBetweenTwoDates (FindPaymentsBetweenTwoDatesRequest) returns (PaginatedPaymentResponse) {}
+  rpc GetPaymentsWithTransactionLogs (SearchQueryRequest) returns (PaginatedPaymentResponse) {}
+  rpc GetPaymentWithTransactionLogs (PaymentIdRequest) returns (SinglePaymentResponse) {}
+}
 
-//   rpc VerifyPayment (VerifyPaymentRequest) returns (VerifyPaymentResponse) {}
+message FindPaymentsBetweenTwoDatesRequest {
+  string startDate = 1;
+  string endDate = 2;
+}
+
+message PaymentIdRequest {
+  optional string paymentId = 1;
 }
 
 message SinglePaymentResponse {
@@ -77,10 +91,25 @@ message SearchByIdDtoRequest {
   string userid = 3;
 }
 
+message SearchByStatusRequest {
+  optional int32 page = 1;
+  optional int32 limit = 2;
+  string status = 3;
+}
+
+message SearchByAuthoriyRequest {
+  string authority = 1;
+}
+
+message UpdatePaymentStatusRequest {
+  string paymentId = 1;
+  string newStatus = 2;
+}
+
 message SearchByPackageIdDtoRequest {
   optional int32 page = 1;
   optional int32 limit = 2;
-  string userid = 3;
+  string pakageId = 3;
 }
 
 message SearchByInvoiceIdDtoRequest {
@@ -90,7 +119,6 @@ message SearchByInvoiceIdDtoRequest {
 message SearchByRefIdDtoRequest {
   string refId = 1;
 }
-
 
 message PaginationData {
   int32 totalCount = 1;
