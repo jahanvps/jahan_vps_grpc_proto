@@ -166,8 +166,8 @@ message PaginatedTransactionLogResponse {
 }
 
 message VerifyPaymentRequest {
-    string authority = 1;
-    string status = 2;
+    string Authority = 1;
+    string Status = 2;
 }
 
 message PaymentRequest {
