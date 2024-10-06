@@ -53,6 +53,7 @@ message Payment {
 
 service PaymentService {
   rpc Payment (PaymentRequest) returns (PaymentResponse) {}
+  rpc Verify (VerifyPaymentRequest) returns (EmptyResponse) {}
   rpc FindAllPayments (SearchQueryRequest) returns (PaginatedPaymentResponse) {}
   rpc FindByUserId (SearchByIdDtoRequest) returns (PaginatedPaymentResponse) {}
   rpc FindByInvoiceId (SearchByInvoiceIdDtoRequest) returns (SinglePaymentResponse) {}
@@ -70,6 +71,8 @@ service PaymentService {
   rpc GetTransactionLogsForUser (UserIdRequest) returns (PaginatedTransactionLogResponse) {}
   rpc GetTransactionLogsByType (GetLogsByTypeRequest) returns (PaginatedTransactionLogResponse) {}
 }
+
+message EmptyResponse {}
 
 message GetLogsByTypeRequest {
   string transactionType = 1;
@@ -160,6 +163,11 @@ message PaginatedTransactionLogResponse {
   int32 status = 1;
   repeated string error = 2;
   TransactionLogResultData data = 3;
+}
+
+message VerifyPaymentRequest {
+    string authority = 1;
+    string status = 2;
 }
 
 message PaymentRequest {
