@@ -61,7 +61,7 @@ message UserPackage {
   string userId = 2;
   string packageId = 3;
   string buyDate = 4;
-  optional string status = 5;
+  string status = 5;
   int32 duration = 6;
   optional string durationType = 7;
   string packageInfo = 8;
@@ -88,6 +88,7 @@ service PackageService {
   rpc GetAllPkgUsersByUserId (GetPckgUsersByUserIdRequest) returns (PaginatedUserPackagesResponse) {}
   rpc DelPkgUserByPkgUserId (PkgByIdRequest) returns (UserPackageResponse) {}
   rpc AddPkgUser (AddPckgUserRequest) returns (UserPackageResponse) {}
+  rpc ChangePkgUserStatus(UpdatePkgUserStatusRequest) returns (UserPackageResponse) {}
 }
 
 message ElementsResponse {
@@ -177,3 +178,7 @@ message PkgResponse {
   Package package = 3;
 }
 
+message UpdatePkgUserStatusRequest {
+  string id = 1;
+  string newStatus = 2;
+}
