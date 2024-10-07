@@ -39,7 +39,7 @@ message PackageDto {
   string title= 5;
   optional string description= 6;
   PackageProperties properties = 7;
-  optional string status = 8;
+  string status = 8;
   optional string descHTML = 9;
 }
 
@@ -137,8 +137,8 @@ message AddPckgUserRequest {
   string packageId = 2;
   int32 duration = 3;
   string durationType = 4;
-  string description = 5;
-  string status = 6;
+  optional string description = 5;
+  optional string status = 6;
 }
 
 message GetPckgUsersByUserIdRequest {
