@@ -63,7 +63,6 @@ service PaymentService {
   rpc FindByAuthority (SearchByAuthoriyRequest) returns (SinglePaymentResponse) {}
   rpc UpdatePaymentStatus(UpdatePaymentStatusRequest) returns (SinglePaymentResponse) {}
   rpc MarkPaymentAsVerified (PaymentIdRequest) returns (SinglePaymentResponse) {}
-  rpc FindPaymentsBetweenTwoDates (FindPaymentsBetweenTwoDatesRequest) returns (PaginatedPaymentResponse) {}
   rpc GetPaymentsWithTransactionLogs (SearchQueryRequest) returns (PaginatedPaymentResponse) {}
   rpc GetPaymentWithTransactionLogs (PaymentIdRequest) returns (SinglePaymentResponse) {}
 
@@ -107,12 +106,14 @@ message SearchByIdDtoRequest {
   optional int32 page = 1;
   optional int32 limit = 2;
   string userid = 3;
+  optional string search = 4;
 }
 
 message SearchByStatusRequest {
   optional int32 page = 1;
   optional int32 limit = 2;
   string status = 3;
+  optional string search = 4;
 }
 
 message SearchByAuthoriyRequest {
@@ -128,6 +129,7 @@ message SearchByPackageIdDtoRequest {
   optional int32 page = 1;
   optional int32 limit = 2;
   string pakageId = 3;
+  optional string search = 4;
 }
 
 message SearchByInvoiceIdDtoRequest {
