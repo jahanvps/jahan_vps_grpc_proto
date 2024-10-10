@@ -46,6 +46,7 @@ service AuthService {
   rpc FindOneUser (FindOneUserRequest) returns (UserResponse) {}
   rpc DeleteOneUser(FindOneUserRequest) returns (UserResponse) {}
   rpc UpdateOneUser(UpdateUserRequest) returns (UserResponse) {}
+  rpc Search(SearchRequest) returns (PaginatedUserResponse) {}
 }
 
 message ChangePasswordRequest{ 
@@ -71,6 +72,12 @@ message FindOneUserRequest {
 }
 
 message SearchQueryRequest {
+  optional int32 page = 1;
+  optional int32 limit = 2;
+}
+
+message SearchRequest {
+  string query = 3
   optional int32 page = 1;
   optional int32 limit = 2;
 }
