@@ -141,6 +141,7 @@ message AddPckgUserRequest {
   optional string description = 5;
   optional string status = 6;
   optional string startDate = 7;
+  optional string status = 8;
 }
 
 message GetPckgUsersByUserIdRequest {
