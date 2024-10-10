@@ -179,6 +179,7 @@ message PaymentRequest {
     string description = 3;
     int32 duration = 4;
     string durationType = 5;
+    optional bool isRenew = 6;
 }
 
 message PaymentResponse {
