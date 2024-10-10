@@ -77,7 +77,7 @@ message SearchQueryRequest {
 }
 
 message SearchRequest {
-  string query = 3
+  string query = 3;
   optional int32 page = 1;
   optional int32 limit = 2;
 }
