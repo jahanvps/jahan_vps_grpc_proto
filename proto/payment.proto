@@ -52,6 +52,8 @@ message Payment {
 
 
 service PaymentService {
+  rpc Search(SearchRequest) returns (PaginatedPaymentResponse) {}
+
   rpc Payment (PaymentRequest) returns (PaymentResponse) {}
   rpc Verify (VerifyPaymentRequest) returns (EmptyResponse) {}
   rpc FindAllPayments (SearchQueryRequest) returns (PaginatedPaymentResponse) {}
@@ -69,6 +71,12 @@ service PaymentService {
   rpc GetTransactionLogsForPayment (PaymentIdRequest) returns (PaginatedTransactionLogResponse) {}
   rpc GetTransactionLogsForUser (UserIdRequest) returns (PaginatedTransactionLogResponse) {}
   rpc GetTransactionLogsByType (GetLogsByTypeRequest) returns (PaginatedTransactionLogResponse) {}
+}
+
+message SearchRequest {
+  string query = 3;
+  optional int32 page = 1;
+  optional int32 limit = 2;
 }
 
 message EmptyResponse {}

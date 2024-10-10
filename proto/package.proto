@@ -81,6 +81,7 @@ service PackageService {
   rpc GetActivePkgs (SearchQueryRequest) returns (PaginatedResponse) {}
   rpc GetPkgElementsList (ElementsRequest) returns (ElementsResponse) {}
   rpc GetPkgsByFilter (PkgsByFilterRequest) returns (PaginatedResponse) {}
+  rpc Search(SearchRequest) returns (PaginatedResponse) {}
 
   // user package
   rpc GetPckgUserById (PkgByIdRequest) returns (UserPackageResponse) {}
@@ -90,6 +91,14 @@ service PackageService {
   rpc DelPkgUserByPkgUserId (PkgByIdRequest) returns (UserPackageResponse) {}
   rpc AddPkgUser (AddPckgUserRequest) returns (UserPackageResponse) {}
   rpc ChangePkgUserStatus(UpdatePkgUserStatusRequest) returns (UserPackageResponse) {}
+  rpc SearchUserPkg(SearchRequest) returns (PaginatedUserPackagesResponse) {}
+
+}
+
+message SearchRequest {
+  string query = 3;
+  optional int32 page = 1;
+  optional int32 limit = 2;
 }
 
 message ElementsResponse {
