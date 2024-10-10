@@ -69,6 +69,7 @@ message UserPackage {
   string createdAt = 10;
   string updatedAt = 11;
   optional string description = 12;
+  optional string startDate = 13;
 }
 
 service PackageService {
@@ -139,6 +140,7 @@ message AddPckgUserRequest {
   string durationType = 4;
   optional string description = 5;
   optional string status = 6;
+  optional string startDate = 7;
 }
 
 message GetPckgUsersByUserIdRequest {
