@@ -87,7 +87,7 @@ message FindUsersByStatusRequest {
 message FindUsersByRoleRequest {
   optional int32 page = 1;
   optional int32 limit = 2;
-  string status = 3;
+  string role = 3;
 }
 
 message SearchRequest {
