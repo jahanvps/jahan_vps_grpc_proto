@@ -3,6 +3,9 @@ syntax = "proto3";
 package reminder;
 
 service ReminderService {
-
+ rpc Find (EmptyRequest) returns (EmptyResponse) {}
 }
+
+message EmptyRequest {}
+message EmptyResponse {}
 
