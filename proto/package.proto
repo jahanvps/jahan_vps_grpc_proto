@@ -93,7 +93,6 @@ service PackageService {
   rpc AddPkgUser (AddPckgUserRequest) returns (UserPackageResponse) {}
   rpc ChangePkgUserStatus(UpdatePkgUserStatusRequest) returns (UserPackageResponse) {}
   rpc SearchUserPkg(SearchRequest) returns (PaginatedUserPackagesResponse) {}
-
 }
 
 message SearchRequest {

@@ -49,7 +49,7 @@ service AuthService {
   rpc FindUsersByStatus(FindUsersByStatusRequest) returns(PaginatedUserResponse) {}
   rpc FindUsersByRole(FindUsersByRoleRequest) returns(PaginatedUserResponse) {}
   rpc FindUsersByExpiredVerificationCode(SearchQueryRequest) returns(PaginatedUserResponse) {}
-  rpc Search(SearchRequest) returns (PaginatedUserResponse) {}
+  rpc Search(SearchQueryRequest) returns (PaginatedUserResponse) {}
 }
 
 message ChangePasswordRequest{ 
@@ -77,23 +77,21 @@ message FindOneUserRequest {
 message SearchQueryRequest {
   optional int32 page = 1;
   optional int32 limit = 2;
+  optional string search = 3;
 }
 
 message FindUsersByStatusRequest {
   optional int32 page = 1;
   optional int32 limit = 2;
   string status = 3;
+  optional string search = 4;
 }
+
 message FindUsersByRoleRequest {
   optional int32 page = 1;
   optional int32 limit = 2;
   string role = 3;
-}
-
-message SearchRequest {
-  string query = 3;
-  optional int32 page = 1;
-  optional int32 limit = 2;
+  optional string search = 4;
 }
 
 message UpdateUserRequest {
