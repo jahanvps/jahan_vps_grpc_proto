@@ -84,6 +84,7 @@ service PackageService {
   rpc Search(SearchRequest) returns (PaginatedResponse) {}
 
   // user package
+  rpc GetAllPckgUsers (SearchRequest) returns (PaginatedUserPackagesResponse) {}
   rpc GetPckgUserById (PkgByIdRequest) returns (UserPackageResponse) {}
   rpc GetPckgUserByUserId (GetPckgUsersByUserIdRequest) returns (PaginatedUserPackagesResponse) {}
   rpc GetActivePkgUsersByUserId (GetPckgUsersByUserIdRequest) returns (PaginatedUserPackagesResponse) {}
@@ -96,7 +97,7 @@ service PackageService {
 }
 
 message SearchRequest {
-  string query = 3;
+  optional string query = 3;
   optional int32 page = 1;
   optional int32 limit = 2;
 }
