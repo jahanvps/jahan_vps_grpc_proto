@@ -61,6 +61,7 @@ message GetOneRequest {
 message SearchQueryMessage {
   optional int32 page = 1;
   optional int32 limit = 2;
+  optional string search = 3;
 }
 
 message ProfileResponse {
